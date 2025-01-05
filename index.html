@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card">
+
+  <p>Заповніть пропуски в діалозі:</p>
+  <div id="dialogue">
+    {{Dialogue}}
+    Emma: Do you remember this neighborhood.
+    Jack: Yes, but <input id="input1" type="text"> <input id="input2" type="text"> <input id="input3" type="text"> here, did we.
+    Emma: No, we didn’t live here. We just visited sometimes.
+    Jack: It feels so familiar, though.
+    Emma: That’s because we spent so much time with Grandma here.
+    Jack: Ah, you’re right. It brings back good memories.
+  </div>
+
+  <p>Слова для вибору:</p>
+  <div id="words">
+    {{Words}}<br>
+    live, visited, stayed, went, liked
+  </div>
+
+  <button onclick="checkAnswers()">Перевірити</button>
+
+  <div id="feedback"></div>
+
+  <div id="correctDialogue">
+    <p><strong>Правильний діалог:</strong></p>
+      {{CorrectDialogue}}
+      Emma: Do you remember this neighborhood?
+      Jack: Yes, but we didn’t live here, did we?
+      Emma: No, we didn’t live here. We just visited sometimes.
+      Jack: It feels so familiar, though.
+      Emma: That’s because we spent so much time with Grandma here.
+      Jack: Ah, you’re right. It brings back good memories.
+  </div>
+
+</div>
+<script>
+  // Цей код знизу відповідає за те щоб робити імена в діалозі жирним шрифтом.
+  function formatDialogue() {
+    const dialogueDiv = document.getElementById("dialogue");
+    dialogueDiv.innerHTML = dialogueDiv.innerHTML.replace(/([A-Za-z]+):/g, '<strong style="color: #6363ee;">$1</strong>:');
+
+    const correctDialogueDiv = document.getElementById("correctDialogue");
+    correctDialogueDiv.innerHTML = correctDialogueDiv.innerHTML.replace(/([A-Za-z]+):/g, '<strong style="color: #6363ee;">$1</strong>:');
+  }
+  //****************************************
+  const CorrectAnswers = 'live|live|live|live|live|live';
+
+
+  function checkAnswers() {
+    const correctAnswers = CorrectAnswers.split('|'); // Розбиваємо правильні відповіді на масив const correctAnswers = "{{Correct Answers}}".split('|');
+    const inputs = document.querySelectorAll('input'); // Отримуємо всі поля введення
+    let allCorrect = true; // Флаг, чи всі відповіді правильні
+
+    inputs.forEach((input, index) => {
+      if (input.value.trim().toLowerCase() === correctAnswers[index].trim().toLowerCase()) {
+        input.style.borderColor = "green"; // Зелена рамка для правильних відповідей
+      } else {
+        input.style.borderColor = "red"; // Червона рамка для неправильних
+        allCorrect = false;
+      }
+    });
+
+    const feedback = document.getElementById("feedback");
+    if (allCorrect) {
+      feedback.textContent = "Всі відповіді правильні!";
+      feedback.style.color = "green";
+      document.getElementById("correctDialogue").style.display = "block";
+    } else {
+      feedback.textContent = "Деякі відповіді неправильні. Спробуйте ще раз.";
+      feedback.style.color = "red";
+    }
+  }
+  // Цей код знизу відповідає за те щоб робити імена в діалозі жирним шрифтом.
+  formatDialogue();
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+.card {
+  font-family: arial;
+  font-size: 16px;
+  text-align: center;
+  color: black;
+  background-color: white;
+  box-shadow: 0px 4px 6px rgb(97, 103, 190);
+  border-radius: 8px;
+  padding: 10px 10px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Вирівнювання слів для вибору по центру */
+#words {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Стиль для кнопки */
+button {
+  display: block;
+  margin: 20px auto; /* Центрування кнопки */
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Стиль для діалогу */
+#dialogue {
+  max-width: 500px;
+  line-height: 1.8;
+  margin-top: 20px;
+  width: 100%;
+  white-space: pre-wrap;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+/* Стиль для інпутів */
+input[type="text"] {
+  font-size: 14px; /* Розмір тексту */
+  width: 50px; /* Ширина полів вводу */
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* Відгуки */
+#feedback {
+  font-weight: bold;
+  margin-top: 0px;
+}
+
+/* Правильний діалог */
+#correctDialogue {
+  display: none;
+  line-height: 1.8;
+  margin-top: 20px;
+  width: 100%;
+  white-space: pre-wrap;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+

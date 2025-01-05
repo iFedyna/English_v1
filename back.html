@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <title>Title</title>
+</head>
+<body>
+
+<div class="card">
+  <div id="dialogue">
+    {{CorrectDialogue}}
+    Emma: Do you remember this neighborhood?
+    Jack: Yes, but we didn’t live here, did we?
+    Emma: No, we didn’t live here. We just visited sometimes.
+    Jack: It feels so familiar, though.
+    Emma: That’s because we spent so much time with Grandma here.
+    Jack: Ah, you’re right. It brings back good memories.
+  </div>
+  <div id="audioPlayer">
+    <p><strong>Слухайте аудіо:</strong></p>
+    {{Audio}}
+  </div>
+</div>
+<input>
+<script>
+  // Цей код відповідає за те, щоб імена в діалозі були жирним шрифтом та кольоровими.
+  function formatDialogue() {
+    const dialogueDiv = document.getElementById("dialogue");
+    dialogueDiv.innerHTML = dialogueDiv.innerHTML.replace(/([A-Za-z]+):/g, '<strong style="color: #6363ee;">$1</strong>:');
+  }
+  // Викликаємо функцію для форматування діалогу після завантаження
+  formatDialogue();
+</script>
+
+
+</body>
+</html>
